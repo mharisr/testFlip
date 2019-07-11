@@ -3,7 +3,6 @@
 
   $main=new controller();
 
-  //<a href='index.php?m=1'>Tambah Data</a>
   if(isset($_GET['m']))
   {
     if($_GET['m']==1)
