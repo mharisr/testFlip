@@ -40,7 +40,7 @@
       $json=file_get_contents($url,false,$context);
 
       $hasil=json_decode($json);
-      
+
       echo "<br><br>";
       print_r($hasil);
 
