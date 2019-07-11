@@ -11,7 +11,7 @@
     (
         'method'=>'GET',
         'header'=>"Content-Type: application/x-www-form-urlencoded\r\n".
-                  "Authorization: Basic $sKey\r\n",
+                  "Authorization: Basic $sKey\r\n"
     )
   );
   $context=stream_context_create($opsi);
