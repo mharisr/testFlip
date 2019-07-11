@@ -5,13 +5,11 @@
   $password="";
   $sKey=base64_encode("$username:$password");
 
-  $data=array("bank_code" => "bri", "account_number" => "6666", "amount" => 700000, "remark" => "coba");
-  $tId="5535152564";
-
-  function req($url,$sKey,$data,$method)
+  function req($url,$sKey,$method)
   {
     if($method=="get")
     {
+      $tId=$_GET['id'];
       $opsi=array
       (
         'http'=>array
@@ -21,9 +19,16 @@
                       "Authorization: Basic $sKey\r\n"
         )
       );
-      $url=$url."/".$data;
+      $url=$url."/".$tId;
     }
     else {
+      $data=array
+      (
+        "bank_code" => $_POST['bank'],
+        "account_number" => $_POST['akun'],
+        "amount" => $_POST['amount'],
+        "remark" => $_POST['remark'],
+      );
       $postData=http_build_query($data);
       $opsi=array
       (
@@ -41,12 +46,9 @@
 
       $hasil=json_decode($json);
 
-      echo "<br><br>";
-      print_r($hasil);
-
+      foreach ($hasil as $key => $value) {
+        echo $key."----".$value."<br>";
+      }
   }
-
-  req($url,$sKey,$tId,"get");
-  req($url,$sKey,$data,"post");
 
 ?>
