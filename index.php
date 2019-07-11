@@ -1,18 +1,21 @@
-<html>
-  <head>
-    <title>test input user</title>
-  </head>
-  <body>
-    <form action="post.php" method="post">
-      BANK:<input type="text" name="bank"><br>
-      AKUN:<input type="text" name="akun"><br>
-      AMOUNT:<input type="text" name="amount"><br>
-      REMARK:<input type="text" name="remark"><br>
-      <input type="submit">
-    </form>
-    <form action="get.php" method="get">
-      BANK:<input type="text" name="id"><br>
-      <input type="submit">
-    </form>
-  </body>
-</html>
+<?php
+  include "controller.php";
+
+  $main=new controller();
+
+  if(isset($_GET['m']))
+  {
+    if($_GET['m']==1)
+    {
+      $main->vcairkan();
+    }
+    else if ($_GET['m']==2)
+    {
+      $main->vcekstatus();
+    }
+  }
+  else
+  {
+      $main->vawal();
+  }
+?>

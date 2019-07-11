@@ -16,6 +16,6 @@
   if(isset($_POST['submit']))
   {
     $main = new controller();
-    $main->kirim();
+    $main->cairkan();
   }
 ?>

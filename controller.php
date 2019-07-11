@@ -13,6 +13,7 @@
       function __construct()
       {
         $this->model= new model();
+
         $this->url="https://nextar.flip.id/disburse";
 
         $this->username="HyzioY7LP6ZoO7nTYKbG8O4ISkyWnX1JvAEVAhtWKZumooCzqp41";
@@ -35,7 +36,7 @@
         include "vawal.php";
       }
 
-      function kirim()
+      function cairkan()
       {
         $data=array
         (
@@ -55,6 +56,22 @@
               'content'=>$postData
           )
         );
+        $kirim=$this->model->ambildata($this->url,$opsi);
+        include "vresponse.php";
+      }
+
+      function cekstatus()
+      {
+        $opsi=array
+        (
+          'http'=>array
+          (
+              'method'=>'GET',
+              'header'=>"Content-Type: application/x-www-form-urlencoded\r\n".
+                        "Authorization: Basic $this->sKey\r\n"
+          )
+        );
+        $this->url=$this->url."/".$_POST['id'];
         $kirim=$this->model->ambildata($this->url,$opsi);
         include "vresponse.php";
       }
