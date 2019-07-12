@@ -10,12 +10,15 @@
       REMARK:<input type="text" name="remark"><br>
       <input type="submit" name="submit">
     </form>
+    <a href="index.php">balik menu</a>
   </body>
 </html>
+
 <?php
-  if(isset($_POST['submit']))
-  {
-    $main = new controller();
-    $main->cairkan();
+  include "controller/ct_transaksi.php";
+
+  if (isset($_POST['submit'])){
+    $trans = new transaksi();
+    $trans->cairkan();
   }
 ?>

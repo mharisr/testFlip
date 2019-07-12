@@ -7,12 +7,15 @@
       ID:<input type="text" name="id"><br>
       <input type="submit" name="submit">
     </form>
+    <a href="index.php">balik menu</a>
   </body>
 </html>
+
 <?php
-  if(isset($_POST['submit']))
-  {
-    $main = new controller();
-    $main->cekstatus();
+  include "controller/ct_transaksi.php";
+
+  if (isset($_POST['submit'])){
+    $trans = new transaksi();
+    $trans->cekstatus();
   }
 ?>

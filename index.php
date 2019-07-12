@@ -1,21 +1,15 @@
 <?php
-  include "controller.php";
+  include "controller/ct_menu.php";
 
-  $main=new controller();
+  $menu = new menu();
 
-  if(isset($_GET['m']))
-  {
-    if($_GET['m']==1)
-    {
-      $main->vcairkan();
+  if (isset($_GET['m'])){
+    if ($_GET['m']==1){
+      $menu->tampilkan_pencairan();
+    } elseif ($_GET['m']==2){
+      $menu->tampilkan_cekstatus();
     }
-    else if ($_GET['m']==2)
-    {
-      $main->vcekstatus();
-    }
-  }
-  else
-  {
-      $main->vawal();
+  } else {
+      $menu->tampilkan_menuawal();
   }
 ?>
