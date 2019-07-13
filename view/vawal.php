@@ -3,7 +3,12 @@
     <title>MENU</title>
   </head>
   <body>
-    <a href='index.php?m=1'>Cairkan</a>
-    <a href='index.php?m=2'>Cek Status</a>
+    <center>
+      <h1>MENU UTAMA</h1>
+      </br></br>
+      <a href='index.php?m=1'>PENCAIRAN</a>
+      </br></br>
+      <a href='index.php?m=2'>CEK STATUS PENCAIRAN</a>
+    </center>
   </body>
 </html>

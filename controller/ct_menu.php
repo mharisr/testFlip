@@ -1,4 +1,6 @@
 <?php
+
+  //fungsi-fungsi pemanggil view utama
   class menu{
     function tampilkan_pencairan(){
       include "view/v_cairkan.php";

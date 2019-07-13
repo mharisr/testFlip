@@ -3,18 +3,21 @@
     <title>CEK STATUS PENCAIRAN</title>
   </head>
   <body>
-    <form action="" method="POST">
-      ID  :<input type="text" name="id"><br>
-      <input type="submit" name="submit">
-    </form>
-    <a href="index.php">balik menu</a>
+    <a href="index.php">MENU UTAMA</a>
+    <center>
+      <h1>STATUS TRANSAKSI</h1>
+      <form action="" method="POST">
+        MASUKKAN ID  :<input type="text" name="id">
+        <input type="submit" name="submit" value="CEK STATUS">
+      </form>
+    </center>
   </body>
 </html>
 
 <?php
-  include "controller/ct_transaksi.php";
+  include "controller/ct_transaksi.php"; //berisi class transaksi
 
-  if (isset($_POST['submit'])){
+  if (isset($_POST['submit'])){//jika submit diklik
     $trans = new transaksi();
     $trans->cekstatus();
   }
