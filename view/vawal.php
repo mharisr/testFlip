@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>test input user</title>
+    <title>MENU</title>
   </head>
   <body>
     <a href='index.php?m=1'>Cairkan</a>

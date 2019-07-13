@@ -1,11 +1,11 @@
 <html>
   <head>
-    <title>test input user</title>
+    <title>PENCAIRAN DANA</title>
   </head>
   <body>
     <form action="" method="POST">
-      BANK:<input type="text" name="bank"><br>
-      AKUN:<input type="text" name="akun"><br>
+      BANK  :<input type="text" name="bank"><br>
+      AKUN  :<input type="text" name="akun"><br>
       AMOUNT:<input type="text" name="amount"><br>
       REMARK:<input type="text" name="remark"><br>
       <input type="submit" name="submit">

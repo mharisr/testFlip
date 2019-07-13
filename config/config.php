@@ -3,7 +3,7 @@
   define ('HOST',"localhost");
   define ('UNAME',"root");
   define ('PSWD',"");
-  define ('DB',"testflip_db");
+  define ('DB',"db");
 
 
 //KONFIGURASI API

@@ -1,10 +1,10 @@
 <html>
   <head>
-    <title>test input user</title>
+    <title>CEK STATUS PENCAIRAN</title>
   </head>
   <body>
     <form action="" method="POST">
-      ID:<input type="text" name="id"><br>
+      ID  :<input type="text" name="id"><br>
       <input type="submit" name="submit">
     </form>
     <a href="index.php">balik menu</a>
