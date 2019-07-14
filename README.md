@@ -35,3 +35,4 @@ Salin jalankan link berikut `http://localhost/testFlip/migration.php` di browser
 ## Catatan
 - Usahakan semua input diisi sesuai dengan data yang diminta
 - Daftar semua transaksi dimunculkan untuk memudahkan pengecekan jalannya program
+- Terdapat link `MENU UTAMA` untuk kembali ke menu awal
