@@ -9,7 +9,7 @@
 
  - Pastikan Server Apache dan MySQL di XAMPP sudah berjalan
  - Unduh program ini dalam ZIP atau atau lakukan `clone` repository.
- - Ekstrak ZIP. Salin folder `testFlip` ke direktori htdocs XAMPP.
+ - Ekstrak ZIP. Salin folder `testFlip` ke direktori htdocs XAMPP. (Pastikan rename nama foldernya `testFlip`)
  - Pada folder `testFlip`, buka file `config.php` pada folder `config`. Ubah konfigurasi yang dibutuhkan (misal: nama database yang digunakan).
 - Buat database baru dengan nama sesuai yang di tuliskan di dalam file `config.php`.
 - Tambahkan tabel yang dibutuhkan ke database dengan cara :
