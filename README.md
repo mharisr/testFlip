@@ -13,11 +13,11 @@
  - Pada folder `testFlip`, buka file `config.php` pada folder `config`. Ubah konfigurasi yang dibutuhkan (misal: nama database yang digunakan).
 - Buat database baru dengan nama sesuai yang di tuliskan di dalam file `config.php`.
 - Tambahkan tabel yang dibutuhkan ke database dengan cara :
-`jalankan link berikut `http://localhost/testFlip/migration.php` di browser`
+Salin jalankan link berikut `http://localhost/testFlip/migration.php` di browser
 
 ## Menjalankan Layanan
 
-- Jalankan link berikut `http://localhost/testFlip/` di browser
+- Salin dan jalankan link berikut `http://localhost/testFlip/` di browser
 - Akan muncul menu  `PENCAIRAN DANA` dan `CEK STATUS PENCAIRAN DANA`. Terdapat pula menu `TAMPILKAN SEMUA TRANSAKSI` untuk membantu pengecekan isi database
 
 #### Permintaan Pencairan Dana
