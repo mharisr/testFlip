@@ -8,8 +8,8 @@
       public $api;
 
       function __construct(){
-        $this->db = new database();//objek database baru
-        $this->api= new API();//objek api baru
+        $this->db   = new database();//objek database baru
+        $this->api  = new API();//objek api baru
       }
 
     //FUNGSI UTAMA
@@ -37,14 +37,20 @@
         //simpan respon ke database
         $simpan = $this->simpan($respon);
 
-        echo "<br>Permintaan pencairan dana baru berhasil dibuat.<br><br>";
-        echo "Detail transaksi :<br>";
-        echo "ID          : $respon->id<br>";
-        echo "Jumlah      : $respon->amount<br>";
-        echo "Catatan     : $respon->remark<br>";
-        echo "Waktu dibuat: $respon->timestamp<br>";
-        echo "Status      : $respon->status<br>";
+        if ($simpan){//jika berhasil disimpan
+          echo "<br>Permintaan pencairan dana baru berhasil dibuat.<br><br>";
+          echo "Detail transaksi :<br>";
+          echo "ID          : $respon->id<br>";
+          echo "Jumlah      : $respon->amount<br>";
+          echo "Catatan     : $respon->remark<br>";
+          echo "Waktu dibuat: $respon->timestamp<br>";
+          echo "Status      : $respon->status<br>";
+        }else{
+          echo "Permintaan gagal<br>";
+        }
 
+        //menampilkan semua transaksi
+        $this->tampilkan_semua();
       }
       //permintaan cek status pencairan
       function cekstatus(){
@@ -60,32 +66,39 @@
             )
           );
           //menambahkan id ke url
-          $url=URL."/".$_POST['id'];
+          $url    = URL."/".$_POST['id'];
           //tangkap respon dari api
-          $respon=$this->api->request($url,$opsi);
+          $respon = $this->api->request($url,$opsi);
           //update database berdasarkan respon api
-          $this->update($respon);
+          $update = $this->update($respon);
 
-          echo "Detail transaksi :<br>";
-          echo "ID             : ".$_POST['id']."<br>";
-          echo "Jumlah         : ".$data['status']."<br>";
-          echo "Catatan        : ".$data['remark']."<br>";
-          echo "Waktu dibuat   : ".$data['timestamp']."<br>";
-          echo "Status         : ".$data['status']."<br>";
-          echo "Terakhir dicek : ".$data['time_served']."<br>";
-          echo "Receipt        : <br><img src=".$data['receipt'].">";
+          if($update){
+            echo "Detail transaksi :<br>";
+            echo "ID             : ".$_POST['id']."<br>";
+            echo "Jumlah         : ".$data['amount']."<br>";
+            echo "Catatan        : ".$data['remark']."<br>";
+            echo "Waktu dibuat   : ".$data['timestamp']."<br>";
+            echo "Status         : ".$respon->status."<br>";
+            echo "Terakhir dicek : ".$respon->time_served."<br>";
+            echo "Receipt        : <br><img src=".$respon->receipt." alt='kosong' height='48' width='48'>";
+          } else {
+            echo "Gagal perbarui status";
+          }
         } else {//jika transaksi tidak ada
           echo "<br>Transaksi dengan ID ".$_POST['id']." tidak ditemukan!<br>";
         }
+
+        //menampilkan semua transaksi
+        $this->tampilkan_semua();
       }
 
     //FUNGSI CRUD
       //simpan transaksi baru
       function simpan($respon){
         foreach ($respon as $value){
-            $data[]=$value;
+            $data[] = $value;
         }
-        $this->db->simpandata($data);
+        return $this->db->simpandata($data);
       }
       //ambil data
       function pilih($id){
@@ -100,7 +113,30 @@
           'receipt'     =>($respon->receipt),
           'time_served' =>($respon->time_served)
         );
-        $this->db->updatedata($id,$newdata);
+        return $this->db->updatedata($id,$newdata);
+      }
+
+    //FUNGSI pemanggil VIEW
+      //form pencairan
+      function tampilkan_pencairan(){
+        include "view/v_cairkan.php";
+      }
+      //form cek status pencairan
+      function tampilkan_cekstatus(){
+        include "view/v_cekstatus.php";
+      }
+      //menu utama
+      function tampilkan_menuawal(){
+        include "view/vawal.php";
+      }
+      //semua transaksi
+      function tampilkan_semua(){
+        $semua = new transaksi();
+        $data  = $this->db->pilihsemua();
+
+        if($data){
+          include "view/v_semuatransaksi.php";
+        }
       }
 
       function __destruct(){

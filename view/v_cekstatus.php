@@ -15,7 +15,6 @@
 </html>
 
 <?php
-  include "controller/ct_transaksi.php"; //berisi class transaksi
 
   if (isset($_POST['submit'])){//jika submit diklik
     $trans = new transaksi();

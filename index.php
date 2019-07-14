@@ -1,8 +1,8 @@
 <?php
-  include "controller/ct_menu.php";//berisi class menu
+  include "controller/controller.php";//berisi class transaksi
 
   //objek baru dari class menu
-  $menu = new menu();
+  $menu = new transaksi();
 
   //cek menu yang dipilih
   if (isset($_GET['m'])){
@@ -11,6 +11,8 @@
       $menu->tampilkan_pencairan();
     } elseif ($_GET['m']==2){
       $menu->tampilkan_cekstatus();
+    } elseif ($_GET['m']==3){
+      $menu->tampilkan_semua();
     }
   } else {//jika menu belum ada menu yang dipilih tampilkan menu awal
       $menu->tampilkan_menuawal();
