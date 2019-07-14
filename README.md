@@ -7,6 +7,7 @@
 
 ## Mempersiapkan Program
 
+ - Pastikan Server Apache dan MySQL di XAMPP sudah berjalan
  - Unduh program ini dalam ZIP atau atau lakukan `clone` repository.
  - Ekstrak ZIP. Salin folder `testFlip` ke direktori htdocs XAMPP.
  - Pada folder `testFlip`, buka file `config.php` pada folder `config`. Ubah konfigurasi yang dibutuhkan (misal: nama database yang digunakan).
@@ -19,15 +20,13 @@
 - Jalankan link berikut `http://localhost/testFlip/` di browser
 - Akan muncul menu  `PENCAIRAN DANA` dan `CEK STATUS PENCAIRAN DANA`. Terdapat pula menu `TAMPILKAN SEMUA TRANSAKSI` untuk membantu pengecekan isi database
 
-### Permintaan Pencairan Dana
-
+#### Permintaan Pencairan Dana
 - Pilih menu `PENCAIRAN DANA`
 - Isi form yang disediakan kemudian klik tombol `KIRIM`
 - Akan muncul pesan sukses dan detail transaksi yang dibuat
 - Daftar semua transaksi dimunculkan di bagian bawah untuk memudahkan pengecekan database
 
-### Cek Status Pencairan Dana
-
+#### Cek Status Pencairan Dana
 - Pilih menu `CEK STATUS PENCAIRAN DANA`
 - Isi `ID` transaksi yang akan dicek statusnya kemudian klik tombol `CEK STATUS` (ID transaksi harus terdaftar di database)
 - Akan muncul detail transaksi sesuai ID yang dimasukkan
