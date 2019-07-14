@@ -38,9 +38,8 @@
 </html>
 
 <?php
-
   if (isset($_POST['submit'])){//jika submit diklik
-    if(isset($_POST['bank'])&&($_POST['akun'])&&($_POST['amount'])){//jika semua diisi
+    if(!empty($_POST['bank'])&&($_POST['akun'])&&($_POST['amount'])){//jika semua diisi
       if(is_numeric($_POST['amount'])){
         if(empty($_POST['remark'])){
           $_POST['remark']=" ";
