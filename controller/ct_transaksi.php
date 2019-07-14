@@ -37,13 +37,20 @@
         //simpan respon ke database
         $simpan = $this->simpan($respon);
 
-        include "view/vresponse.php";
+        echo "<br>Permintaan pencairan dana baru berhasil dibuat.<br><br>";
+        echo "Detail transaksi :<br>";
+        echo "ID          : $respon->id<br>";
+        echo "Jumlah      : $respon->amount<br>";
+        echo "Catatan     : $respon->remark<br>";
+        echo "Waktu dibuat: $respon->timestamp<br>";
+        echo "Status      : $respon->status<br>";
+
       }
       //permintaan cek status pencairan
       function cekstatus(){
         $data = $this->pilih($_POST['id']);//pilih transaksi untuk dicek sesuai id dari form input
 
-        if ($data->fetch_assoc()!=NULL){//cek apakah transaksi ada
+        if ($data!=NULL){//cek apakah transaksi ada
           //siapkan data untuk dikirim ke api
           $opsi = array(
             'http'=> array(
@@ -59,7 +66,14 @@
           //update database berdasarkan respon api
           $this->update($respon);
 
-          include "view/vresponse.php";
+          echo "Detail transaksi :<br>";
+          echo "ID             : ".$_POST['id']."<br>";
+          echo "Jumlah         : ".$data['status']."<br>";
+          echo "Catatan        : ".$data['remark']."<br>";
+          echo "Waktu dibuat   : ".$data['timestamp']."<br>";
+          echo "Status         : ".$data['status']."<br>";
+          echo "Terakhir dicek : ".$data['time_served']."<br>";
+          echo "Receipt        : <br><img src=".$data['receipt'].">";
         } else {//jika transaksi tidak ada
           echo "<br>Transaksi dengan ID ".$_POST['id']." tidak ditemukan!<br>";
         }
@@ -71,7 +85,7 @@
         foreach ($respon as $value){
             $data[]=$value;
         }
-        $this->db->simpandata(implode("', '",$data));
+        $this->db->simpandata($data);
       }
       //ambil data
       function pilih($id){
