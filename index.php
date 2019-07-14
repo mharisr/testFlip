@@ -1,7 +1,7 @@
 <?php
   include "controller/controller.php";//berisi class transaksi
 
-  //objek baru dari class menu
+  //objek baru dari class transaksi
   $menu = new transaksi();
 
   //cek menu yang dipilih

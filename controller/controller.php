@@ -72,7 +72,7 @@
           //update database berdasarkan respon api
           $update = $this->update($respon);
 
-          if($update){
+          if($update){//jika update berhasil
             echo "Detail transaksi :<br>";
             echo "ID             : ".$_POST['id']."<br>";
             echo "Jumlah         : ".$data['amount']."<br>";
