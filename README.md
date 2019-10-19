@@ -1,4 +1,5 @@
 # MINI PROJECT FLIP
+Project untuk seleksi Backend Engineer PT. Fliptech Lentera Inspirasi Pertiwi
 
 ## Yang Dibutuhkan
 
